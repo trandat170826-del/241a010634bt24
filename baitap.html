@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả bài tập - Trần Gia Đạt</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">BÀI TẬP 24</a>
+
+            <nav>
+                <a href="index.html">Trang chủ</a>
+                <a href="denkeoquan.html">Đèn kéo quân</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container branch-page">
+
+        <p class="subtitle">KẾT QUẢ THỰC HÀNH</p>
+
+        <h1 id="title">Bài tập</h1>
+
+        <div class="branch-card">
+            <h2 id="exerciseName">Kết quả bài thực hành</h2>
+
+            <p>
+                Đây là hình ảnh minh họa kết quả thực hiện bài tập
+                trong quá trình học môn Lập trình Web.
+            </p>
+
+            <img id="resultImage"
+                 src="images/ketqua17.jpg"
+                 alt="Hình ảnh kết quả bài tập">
+
+            <p id="imageNote">
+                Hãy thay hình ảnh này bằng ảnh chụp màn hình
+                kết quả bài tập thực tế của bạn.
+            </p>
+        </div>
+
+        <div class="back-home">
+            <a href="index.html" class="btn">
+                ← Quay về trang chủ
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 - Trần Gia Đạt | Bài tập 24</p>
+    </footer>
+
+    <script>
+        // Lấy số bài tập từ đường dẫn
+        const params = new URLSearchParams(window.location.search);
+        const number = params.get("so");
+
+        // Kiểm tra số bài hợp lệ
+        const validNumbers = ["17", "18", "19", "20", "21", "22"];
+
+        const exerciseNumber = validNumbers.includes(number)
+            ? number
+            : "17";
+
+        // Cập nhật nội dung trang
+        document.getElementById("title").textContent =
+            "Bài tập " + exerciseNumber;
+
+        document.getElementById("exerciseName").textContent =
+            "Kết quả thực hành bài tập " + exerciseNumber;
+
+        // Hiển thị ảnh tương ứng
+        const image = document.getElementById("resultImage");
+
+        image.src = "images/ketqua" + exerciseNumber + ".jpg";
+
+        image.alt = "Kết quả bài tập " + exerciseNumber;
+
+        // Nếu chưa có ảnh, thông báo cho người xem
+        image.onerror = function () {
+            this.style.display = "none";
+
+            document.getElementById("imageNote").textContent =
+                "Chưa có ảnh kết quả. Vui lòng bổ sung ảnh chụp bài tập " +
+                exerciseNumber + " vào thư mục images.";
+        };
+    </script>
+
+</body>
+</html>
